@@ -20,38 +20,268 @@
     position: relative;
     width: 100%;
     height: 100%;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); // Плавність як у застосунку
     transform-style: preserve-3d;
+    cursor: pointer;
   }
-
-  // Клас, який ми будемо додавати через JS
-  &.is-flipped .card-inner {
-    transform: rotateY(180deg);
-  }
-}
-
-.card-front, .card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 28px;
-  padding: 24px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 
 .card-front {
-  background: linear-gradient(135deg, #74b9ff, #0984e3); // Блакитний градієнт паспорта
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 24px;
+  overflow: hidden; // Щоб градієнт не вилазив за краї
+  padding: 24px;
   color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+
+  // Основний колір фону
+  background-color: #4facfe; 
+  
+  // Нашарування радіальних градієнтів для ефекту Дії
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(0, 198, 255, 0.5) 0%, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(0, 114, 255, 0.4) 0%, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(102, 126, 234, 0.4) 0%, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(79, 172, 254, 0.5) 0%, transparent 50%);
+
+  // Ефект скляного відблиску (Glassmorphism)
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(110deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 50%);
+    pointer-events: none;
+  }
 }
 
 .card-back {
   background: white;
-  transform: rotateY(180deg);
+  color: #333;
+  transform: rotateY(180deg); // Початковий розворот спини
+  backface-visibility: hidden;
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.user-info {
+  margin-left: 20px;
+  
+  .label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7; // Напівпрозорі підписи
+    margin-bottom: 2px;
+  }
+  
+  .value {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+}
+
+// Фото користувача як у Дії
+.user-photo {
+  width: 120px;
+  height: 160px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2); // Тимчасове місце під фото
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(20%); // Легкий фільтр для стилю
+  }
+}
+
+.app-container {
+  width: 100%;
+  height: 100vh;
+  background: #f0f2f5;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  // Враховуємо Safe Areas айфона
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  height: 100%;
+  padding: 0 20px;
+  gap: 15px;
+  
+  // Ховаємо скроллбар, щоб було чисто
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.card {
+  flex: 0 0 calc(100vw - 40px); // Картка майже на весь екран мінус відступи
+  height: 75vh; // Висота картки відносно екрану
+  perspective: 1000px;
+  scroll-snap-align: center;
+}
+
+.card.edocument {
+  .card-front {
+    // Жовто-салатовий градієнт
+    background-color: #d4fc79;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(150, 230, 161, 0.6) 0%, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(212, 252, 121, 0.6) 0%, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(142, 209, 252, 0.4) 0%, transparent 50%);
+    
+    color: #2c3e50; // Темний текст для контрасту на світлому фоні
+
+    .label { color: rgba(0, 0, 0, 0.5); }
+    .value { color: #000; }
+    .doc-title {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; // Важливо: приховуємо все зайве по вертикалі
+  display: flex;
+  flex-direction: column;
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: row; // Картки в ряд
+  width: 100%;
+  height: 100%;
+  
+  // Вмикаємо горизонтальний скрол
+  overflow-x: auto; 
+  overflow-y: hidden;
+  
+  // Магія свайпу
+  scroll-snap-type: x mandatory; 
+  scroll-behavior: smooth;
+  
+  // Прибираємо смугу прокрутки
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  // Відступи, щоб картка була по центру (як в iPhone 11 Pro)
+  padding: 0 20px; 
+  box-sizing: border-box;
+  gap: 20px; // Відстань між картками
+}
+
+.card {
+  // Картка має бути трохи меншою за екран, щоб було видно краї сусідніх (як у Дії)
+  // Або рівно 100%, якщо хочеш на весь екран
+  flex: 0 0 calc(100vw - 40px); 
+  
+  height: 70vh; // Підбери висоту під свій iPhone
+  scroll-snap-align: center; // Картка завжди магнітиться до центру
+  perspective: 1000px;
+  
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    // ... твій попередній код анімації
+  }
+}
+
+.card.tax-id {
+  .card-front {
+    // Бежево-жовтий градієнт РНОКПП
+    background-color: #fef9e7;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(253, 203, 110, 0.4) 0%, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(241, 196, 15, 0.3) 0%, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(255, 234, 167, 0.5) 0%, transparent 50%);
+    
+    color: #2d3436; // Темний текст
+
+    .doc-title {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+      opacity: 0.8;
+    }
+
+    .tax-number {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 25px;
+      color: #000;
+    }
+
+    .label { color: rgba(0, 0, 0, 0.5); }
+    .value { color: #000; }
+  }
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  
+  overflow-x: auto;
+  overflow-y: hidden;
+  
+  // ОСНОВНА МАГІЯ ТУТ:
+  scroll-snap-type: x mandatory; // Картка ОБОВ'ЯЗКОВО магнітиться
+  scroll-behavior: smooth;
+  
+  // Додаємо інерційну зупинку (важливо для iOS/iPhone)
+  -webkit-overflow-scrolling: touch; 
+  
+  // Прибираємо смугу прокрутки
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  padding: 0 20px; 
+  box-sizing: border-box;
+  gap: 15px; // Відстань між картками
+}
+
+.card {
+  // Робимо так, щоб картка була основною ціллю для магніту
+  flex: 0 0 calc(100vw - 40px); 
+  scroll-snap-align: center; // Центруємо картку при зупинці
+  scroll-snap-stop: always;   // ЦЕЙ РЯДОК змушує зупинятися на КОЖНІЙ картці, навіть якщо ти сильно штовхнув
+  
+  perspective: 1000px;
+  
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    // ... твій код анімації
+  }
 }

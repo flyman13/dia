@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // Фірмовий світло-сірий/блакитний фон
+  background: radial-gradient(circle at top, #eef2f3 0%, #d5dde5 100%);
+  font-family: 'Inter', sans-serif; // Схожий на шрифт Дії
+}
+
+body {
+  position: fixed; // Запобігає "гумовому" скролу всього екрана вгору-вниз
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}

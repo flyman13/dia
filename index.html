@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Дія - Практика</title>
-    <link rel="stylesheet" href="dist/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="assets/scss/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 </head>
 <body>
     <div class="app">
@@ -44,6 +46,82 @@
                 </div>
             </div>
             
+            </div>
+        </div>
+
+        <div class="card edocument" id="edocument">
+            <div class="card-inner">
+                
+                <div class="card-front">
+                <div class="card-header">
+                    <span class="country">УКРАЇНА</span>
+                    <div class="coat-of-arms"></div>
+                </div>
+                
+                <div class="card-body">
+                    <div class="doc-title">єДокумент</div>
+                    <div class="user-info">
+                    <p class="label">Прізвище</p>
+                    <p class="value">ШЕВЧЕНКО</p>
+                    <p class="label">Ім'я</p>
+                    <p class="value">АРТЕМ</p>
+                    <p class="label">По батькові</p>
+                    <p class="value">ОЛЕКСАНДРОВИЧ</p>
+                    <p class="label">Дата народження</p>
+                    <p class="value">01.01.2009</p> 
+                    </div>
+                </div>
+                
+                <div class="card-footer">
+                    <p class="status">Документ дійсний на час воєнного стану</p>
+                </div>
+                </div>
+
+                <div class="card-back">
+                <div class="qr-container">
+                    <div class="qrcode-edoc"></div>
+                    <p>Для перевірки через Дію</p>
+                </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="card tax-id" id="tax-id">
+            <div class="card-inner">
+                
+                <div class="card-front">
+                <div class="card-header">
+                    <span class="country">УКРАЇНА</span>
+                    <div class="coat-of-arms"></div>
+                </div>
+                
+                <div class="card-body">
+                    <div class="doc-title">Карта платника податків</div>
+                    <div class="tax-number">1234567890</div> <div class="user-info">
+                    <p class="label">Прізвище</p>
+                    <p class="value">ШЕВЧЕНКО</p>
+                    <p class="label">Ім'я</p>
+                    <p class="value">АРТЕМ</p>
+                    <p class="label">По батькові</p>
+                    <p class="value">ОЛЕКСАНДРОВИЧ</p>
+                    <p class="label">Дата народження</p>
+                    <p class="value">01.01.2009</p>
+                    </div>
+                </div>
+                
+                <div class="card-footer">
+                    <p class="verification-status">Дані підтверджено ДПС</p>
+                </div>
+                </div>
+
+                <div class="card-back">
+                <div class="qr-container">
+                    <div class="qrcode-tax"></div>
+                    <p>Код для зчитування</p>
+                </div>
+                </div>
+                
             </div>
         </div>
     </div>
