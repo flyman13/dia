@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .card-back {
   background: white;
   transform: rotateY(180deg);
@@ -265,6 +266,42 @@
   height: 100%;
 }
 
+.ticker-wrapper {
+  width: 100%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.ticker-text {
+  display: flex;
+  width: -moz-max-content;
+  width: max-content;
+  animation: scroll-ticker 20s linear infinite;
+}
+
+.ticker-item {
+  display: inline-block;
+  padding-right: 50px;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+@keyframes scroll-ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 body {
   margin: 0;
   height: 100vh;
@@ -280,4 +317,78 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
+}
+
+.pagination-dots {
+  /* Робимо фіксовані точки — завжди внизу екрану, над навігацією */
+  position: fixed;
+  bottom: calc(56px + env(safe-area-inset-bottom));
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 120; /* Піднімаємо над ticker та іншими елементами */
+  pointer-events: none;
+}
+.pagination-dots .dot {
+  width: 10px;
+  height: 10px;
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 50%;
+  transition: transform 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  pointer-events: auto; /* Дозволяємо клік по самих точках, контейнер лишається pointer-events: none */
+}
+.pagination-dots .dot.active {
+  background: #000;
+  transform: scale(1.4);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* Стилизуємо нижнє меню — фіксоване по низу та центроване */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 8px;
+  z-index: 70;
+  background: rgba(255, 255, 255, 0); /* прозоре за замовчуванням */
+  backdrop-filter: blur(6px);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.bottom-nav .nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #333;
+  pointer-events: auto;
+}
+.bottom-nav .nav-item .icon {
+  width: 22px;
+  height: 22px;
+  margin-bottom: 4px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.bottom-nav .nav-item.active {
+  color: #000;
+  font-weight: 600;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
 }/*# sourceMappingURL=main.css.map */

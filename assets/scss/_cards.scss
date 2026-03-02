@@ -285,3 +285,40 @@
     // ... твій код анімації
   }
 }
+
+.ticker-wrapper {
+  width: 100%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.ticker-text {
+  display: flex;
+  width: max-content; // Важливо: контейнер підлаштовується під довжину тексту
+  animation: scroll-ticker 20s linear infinite;
+}
+
+.ticker-item {
+  display: inline-block;
+  padding-right: 50px; // Відступ між фразами
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+@keyframes scroll-ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    // Ми зміщуємо текст рівно на половину його загальної ширини
+    transform: translateX(-50%);
+  }
+}
