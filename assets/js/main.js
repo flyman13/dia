@@ -53,3 +53,44 @@ function updateDiiaBackground() {
 
 // Запуск зміни кожні 15 секунд
 setInterval(updateDiiaBackground, 15000);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.querySelector('.slider-container');
+    const cards = document.querySelectorAll('.card');
+
+    function updateActiveCard() {
+        // Знаходимо центр слайдера
+        const sliderCenter = slider.scrollLeft + slider.offsetWidth / 2;
+        
+        let closestCard = null;
+        let minDistance = Infinity;
+
+        cards.forEach(card => {
+            // Знаходимо центр кожної картки
+            const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+            
+            // Рахуємо відстань від центру картки до центру слайдера
+            const distance = Math.abs(sliderCenter - cardCenter);
+
+            // Шукаємо картку з найменшою відстанню (найближчу до центру)
+            if (distance < minDistance) {
+                minDistance = distance;
+                closestCard = card;
+            }
+        });
+
+        // Видаляємо клас active з усіх карток
+        cards.forEach(card => card.classList.remove('active'));
+        
+        // Додаємо клас active найближчій до центру картці
+        if (closestCard) {
+            closestCard.classList.add('active');
+        }
+    }
+
+    // Відстежуємо подію скролу на слайдері
+    slider.addEventListener('scroll', updateActiveCard);
+    
+    // Викликаємо функцію один раз при завантаженні, щоб підсвітити першу картку
+    updateActiveCard(); 
+});
