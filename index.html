@@ -2,156 +2,136 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Дія - Практика</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <link rel="stylesheet" href="assets/scss/main.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Дія Практика">
+    <meta name="apple-mobile-web-app-title" content="Дія">
     <link rel="apple-touch-icon" href="assets/img/icon.png">
     <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <div class="app">
-    </div>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/qr-gen.js"></script>
-    <div class="slider-container">
-        <div class="card passport" id="passport">
-            <div class="card-inner">
-            
-            <div class="card-front">
-                <div class="card-header">
-                <span class="country">УКРАЇНА</span>
-                <div class="coat-of-arms"></div> </div>
-                
-                <div class="card-body">
-                <div class="user-photo">
-                    <img src="assets/img/avatar.jpg" alt="Photo">
-                </div>
-                <div class="user-info">
-                    <p class="label">Прізвище</p>
-                    <p class="value">ШЕВЧЕНКО</p>
-                    <p class="label">Ім'я</p>
-                    <p class="value">АРТЕМ</p>
-                    <p class="label">По батькові</p>
-                    <p class="value">ОЛЕКСАНДРОВИЧ</p>
-                </div>
-                </div>
-                
-                <div class="card-footer">
-                <div class="chip"></div> <div class="expiry-date">Дійсний до 2034</div>
-                </div>
-                <div class="ticker-wrapper">
-                    <div class="ticker-text">
-                        <span>Дія працює стабільно • Отримуйте довідки онлайн • Нові послуги вже доступні • </span>
-                        <span>Дія працює стабільно • Отримуйте довідки онлайн • Нові послуги вже доступні • </span>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="card-back">
-                <div class="qr-container">
-                <div id="qrcode"></div> <p>Скануйте для перевірки</p>
-                </div>
-            </div>
-            
-            </div>
+    <div class="app-container">
+        <div class="background-wrapper">
+            <div class="moving-blob"></div>
         </div>
+        <div class="slider-container">
+            
+            <div class="card passport" id="passport">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-header-top">
+                            <span class="doc-name">Паспорт громадянина України</span>
+                            <div class="coat-of-arms"></div>
+                        </div>
+                        <div class="card-main-content">
+                            <div class="user-photo">
+                                <img src="assets/img/avatar.jpg" alt="Photo">
+                            </div>
+                            <div class="side-info">
+                                <p class="label">Дата народження:</p>
+                                <p class="small-value">24.08.1991</p>
+                                <p class="label">Номер:</p>
+                                <p class="small-value">000000000</p>
+                            </div>
+                        </div>
+                        
+                        <div class="ticker-container">
+                            <div class="ticker-wrapper">
+                                <div class="ticker-text">
+                                    <span>Документ дійсний на 10:30 | 02.03.2026 • Документ дійсний • </span>
+                                    <span>Документ дійсний на 10:30 | 02.03.2026 • Документ дійсний • </span>
+                                </div>
+                            </div>
+                        </div>
 
-        <div class="card edocument" id="edocument">
-            <div class="card-inner">
-                
-                <div class="card-front">
-                <div class="card-header">
-                    <span class="country">УКРАЇНА</span>
-                    <div class="coat-of-arms"></div>
-                </div>
-                
-                <div class="card-body">
-                    <div class="doc-title">єДокумент</div>
-                    <div class="user-info">
-                    <p class="label">Прізвище</p>
-                    <p class="value">ШЕВЧЕНКО</p>
-                    <p class="label">Ім'я</p>
-                    <p class="value">АРТЕМ</p>
-                    <p class="label">По батькові</p>
-                    <p class="value">ОЛЕКСАНДРОВИЧ</p>
-                    <p class="label">Дата народження</p>
-                    <p class="value">01.01.2009</p> 
-                    </div>
-                </div>
-                
-                <div class="card-footer">
-                    <p class="status">Документ дійсний на час воєнного стану</p>
-                    <div class="ticker-wrapper">
-                        <div class="ticker-text">
-                            <span>Дія працює стабільно • Отримуйте довідки онлайн • Нові послуги вже доступні • </span>
-                            <span>Дія працює стабільно • Отримуйте довідки онлайн • Нові послуги вже доступні • </span>
+                        <div class="card-user-name">
+                            <p class="full-name">Шевченко<br>Артем<br>Олександрович</p>
+                            <div class="more-button">...</div>
                         </div>
                     </div>
+                    <div class="card-back">
+                        <div class="qr-only-container">
+                            <img src="data:image/png;base64,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" style="display: block;">
+                        </div>
                     </div>
                 </div>
-
-
-                <div class="card-back">
-                <div class="qr-container">
-                    <div class="qrcode-edoc"></div>
-                    <p>Для перевірки через Дію</p>
-                </div>
-                </div>
-                
             </div>
-        </div>
 
-        <div class="card tax-id" id="tax-id">
-            <div class="card-inner">
-                
-                <div class="card-front">
-                <div class="card-header">
-                    <span class="country">УКРАЇНА</span>
-                    <div class="coat-of-arms"></div>
-                </div>
-                
-                <div class="card-body">
-                    <div class="doc-title">Карта платника податків</div>
-                    <div class="tax-number">1234567890</div> <div class="user-info">
-                    <p class="label">Прізвище</p>
-                    <p class="value">ШЕВЧЕНКО</p>
-                    <p class="label">Ім'я</p>
-                    <p class="value">АРТЕМ</p>
-                    <p class="label">По батькові</p>
-                    <p class="value">ОЛЕКСАНДРОВИЧ</p>
-                    <p class="label">Дата народження</p>
-                    <p class="value">01.01.2009</p>
+            <div class="card edocument" id="edocument">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-header-top">
+                            <span class="doc-name">єДокумент</span>
+                        </div>
+                        <div class="card-main-content">
+                            <div class="user-photo">
+                                <img src="assets/img/avatar.jpg" alt="Photo">
+                            </div>
+                            <div class="side-info">
+                                <p class="label">Дата народження:</p>
+                                <p class="small-value">24.08.1991</p>
+                                <p class="status-green">Документ дійсний на час воєнного стану</p>
+                            </div>
+                        </div>
+                        <div class="ticker-container">
+                            <div class="ticker-wrapper">
+                                <div class="ticker-text">
+                                    <span>Документ дійсний на 10:30 | 02.03.2026 • Документ дійсний • </span>
+                                    <span>Документ дійсний на 10:30 | 02.03.2026 • Документ дійсний • </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-user-name">
+                            <p class="full-name">Шевченко<br>Артем<br>Олександрович</p>
+                            <div class="more-button">...</div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="qr-only-container">
+                            <div class="qrcode-edoc"></div>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="card-footer">
-                    <p class="verification-status">Дані підтверджено ДПС</p>
-                </div>
-                <div class="ticker-wrapper">
-                    <div class="ticker-text">
-                        <span>Дія працює стабільно • Отримуйте довідки онлайн • Нові послуги вже доступні • </span>
-                        <span>Дія працює стабільно • Отримуйте довідки онлайн • Нові послуги вже доступні • </span>
-                    </div>
-                </div>
-                </div>
-
-
-                <div class="card-back">
-                <div class="qr-container">
-                    <div class="qrcode-tax"></div>
-                    <p>Код для зчитування</p>
-                </div>
-                </div>
-                
             </div>
+
+            <div class="card tax-id" id="tax-id">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-header-top">
+                            <span class="doc-name">Карта платника податків</span>
+                        </div>
+                        <div class="card-main-content">
+                            <div class="side-info full-width">
+                                <p class="label">Номер (РНОКПП):</p>
+                                <p class="tax-number">1234567890</p>
+                                <p class="status-green">Дані підтверджено ДПС</p>
+                            </div>
+                        </div>
+                        <div class="ticker-container">
+                            <div class="ticker-wrapper">
+                                <div class="ticker-text">
+                                    <span>Документ дійсний на 10:30 | 02.03.2026 • Документ дійсний • </span>
+                                    <span>Документ дійсний на 10:30 | 02.03.2026 • Документ дійсний • </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-user-name">
+                            <p class="full-name">Шевченко<br>Артем<br>Олександрович</p>
+                            <div class="more-button">...</div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="qr-only-container">
+                            <div class="qrcode-tax"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </div>
 
         <div class="pagination-dots">
             <div class="dot active"></div>
@@ -160,22 +140,10 @@
         </div>
 
         <nav class="bottom-nav">
-            <div class="nav-item active">
-                <div class="icon doc-icon"></div>
-                <span>Документи</span>
-            </div>
-            <div class="nav-item">
-                <div class="icon services-icon"></div>
-                <span>Послуги</span>
-            </div>
-            <div class="nav-item">
-                <div class="icon payment-icon"></div>
-                <span>Платежі</span>
-            </div>
-            <div class="nav-item">
-                <div class="icon menu-icon"></div>
-                <span>Меню</span>
-            </div>
+            <img src="assets/img/footer.jpg" alt="footer">
         </nav>
-    </body>
+    </div>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/qr-gen.js"></script>
+</body>
 </html>
