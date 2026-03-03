@@ -172,13 +172,14 @@ body {
 /* 8. ЕЛЕМЕНТИ ВСЕРЕДИНІ КАРТКИ */
 .card-main-content {
     display: flex; gap: 15px;
+    margin-top: 50px;
     .user-photo {
         width: 130px; height: 170px; border-radius: 18px; overflow: hidden;
         img { width: 100%; height: 100%; object-fit: cover; }
     }
     .side-info {
-        .label { font-size: 10px; color: #666; margin-bottom: 2px; }
-        .small-value { font-size: 14px; font-weight: 700; margin-bottom: 10px; }
+        .label { font-size: 15px; color: #000; margin-bottom: 2px; }
+        .small-value { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
         .status-green { font-size: 11px; color: #27ae60; font-weight: 700; }
     }
 }
@@ -193,7 +194,7 @@ body {
         width: 38px; height: 38px; background: #000; color: #fff;
         border-radius: 50%; display: flex; justify-content: center; align-items: center;
         font-weight: bold;
-        .more-button-content { margin-bottom: 0px; font-size: 28px;}
+        .more-button-content { margin-bottom: 0px; font-size: 20px;}
     }
 }
 
@@ -251,14 +252,15 @@ body {
     height: 300%;
     
     /* Спробуй спочатку яскраві кольори, щоб переконатися, що фон працює */
-    background: radial-gradient(circle at 40% 40%, #b3d3ea 0%, transparent 30%),
-                radial-gradient(circle at 60% 35%, #eeb6bb 0%, transparent 30%),
-                radial-gradient(circle at 45% 65%, #a3ed96 0%, transparent 30%),
-                radial-gradient(circle at 65% 60%, #beaae7 0%, transparent 30%);
+    background: radial-gradient(circle at 60% 40%, hsl(126, 50%, 71%) 0%, transparent 30%),
+                radial-gradient(circle at 55% 55%, #f3e57c 0%, transparent 30%),
+                radial-gradient(circle at 40% 60%, #ed9af6 0%, transparent 30%),
+                #a5befd;
+
     
     filter: blur(100px); 
     opacity: 0.8; // Збільшив прозорість, щоб краще було видно
-    animation: moveDiiaBg 40s linear infinite;
+    animation: moveDiiaBg 10s linear infinite;
 }
 
 @keyframes moveDiiaBg {
@@ -268,4 +270,5 @@ body {
 
 .doc-name{
   font-size: 27px;
+
 }

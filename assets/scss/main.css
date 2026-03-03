@@ -198,6 +198,7 @@ body {
 .card-main-content {
   display: flex;
   gap: 15px;
+  margin-top: 50px;
 }
 .card-main-content .user-photo {
   width: 130px;
@@ -212,12 +213,12 @@ body {
      object-fit: cover;
 }
 .card-main-content .side-info .label {
-  font-size: 10px;
-  color: #666;
+  font-size: 15px;
+  color: #000;
   margin-bottom: 2px;
 }
 .card-main-content .side-info .small-value {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
   margin-bottom: 10px;
 }
@@ -252,7 +253,7 @@ body {
 }
 .card-user-name .more-button .more-button-content {
   margin-bottom: 0px;
-  font-size: 28px;
+  font-size: 20px;
 }
 
 /* 9. НИЖНЯ НАВІГАЦІЯ */
@@ -316,10 +317,10 @@ body {
   width: 300%;
   height: 300%;
   /* Спробуй спочатку яскраві кольори, щоб переконатися, що фон працює */
-  background: radial-gradient(circle at 40% 40%, #b3d3ea 0%, transparent 30%), radial-gradient(circle at 60% 35%, #eeb6bb 0%, transparent 30%), radial-gradient(circle at 45% 65%, #a3ed96 0%, transparent 30%), radial-gradient(circle at 65% 60%, #beaae7 0%, transparent 30%);
+  background: radial-gradient(circle at 60% 40%, hsl(126, 50%, 71%) 0%, transparent 30%), radial-gradient(circle at 55% 55%, #f3e57c 0%, transparent 30%), radial-gradient(circle at 40% 60%, #ed9af6 0%, transparent 30%), #a5befd;
   filter: blur(100px);
   opacity: 0.8;
-  animation: moveDiiaBg 40s linear infinite;
+  animation: moveDiiaBg 10s linear infinite;
 }
 
 @keyframes moveDiiaBg {
